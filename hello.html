@@ -22,13 +22,14 @@
         </select>
     </div>
     <button id="hide">Hide Content</button>
+
+    <script>
+        const results = document.getElementById("keyword");
+        function Display(){
+            let text = results.value;
+            document.getElementById("show").innerHTML = text;
+        }
+    </script>
 </body>
 </html>
 
-<script>
-    const results = document.getElementById("keyword");
-    function Display(){
-        let text = results.value;
-        document.getElementById("show").innerHTML = text;
-    }
-</script>
