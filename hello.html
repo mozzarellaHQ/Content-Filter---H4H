@@ -8,6 +8,9 @@
 <body>
     <img src="fox_icon.png" alt="Fox Icon" width="100" height="100"/> <h1>Clever Content</h1>
     <input type="text" id="keyword" placeholder="I want to hide..."/>
+    <button type="button" onclick="Display()">Submit</button>
+    <h1 id="show"></h1>
+    
     <div class="dropdown">
         <h2>Select to filter out a theme of content</h2>
         <select id="themes">
@@ -20,3 +23,11 @@
     <button id="hide">Hide Content</button>
 </body>
 </html>
+
+<script>
+    const keyword = document.getElementById('keyword');
+    function Display(){
+        let text = keyword.value;
+        document.getElementById("show").innerHTML = text;
+    }
+</script>
