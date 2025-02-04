@@ -7,7 +7,7 @@
         "128": "fox_icon.png"
     },
     "side_panel": {
-        "default_path": "hello.html"
+        "default_path": "popup.html"
     },
     "permissions": ["sidePanel"]
   }
