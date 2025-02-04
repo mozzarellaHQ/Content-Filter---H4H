@@ -150,15 +150,27 @@
 
     <!-- java script to add user keywords to list to display them (doesn't work rn...) -->
     <script>
-        const btnel = document.querySelector('button');
-        const inputel = document.querySelector('input');
+        // const btnel = document.querySelector('button');
+        const btnel = document.getElementById('add'); //changed line above to this to get the button to properly work
+        const inputel = document.querySelector('keyword'); //changed from input to keyword
         const listel = document.querySelector('ul');
 
-        btnel.addEventListener('click', () => {
-            const inputValue = inputel.value;
-            listel.innerHTML = `<li>${inputValue}</li>`;
-        });
+        // btnel.addEventListener('click', () => {
+        //     const inputValue = inputel.value;
+        //     listel.innerHTML = `<li>${inputValue}</li>`;
+        // });
+        
+//this is attempt to get the add button working 
+    btnel.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    const inputValue = inputel.value.trim();
+    if (inputValue) {
+        const newItem = document.createElement('li');
+        newItem.textContent = inputValue;
+        listel.appendChild(newItem);
+        inputel.value = '';
+    }
+});
     </script>
 </body>
 </html>
-
