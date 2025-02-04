@@ -55,6 +55,10 @@
         input::placeholder {
             color: darkcyan;
         }
+
+        .radio-label {
+            color: darkcyan;
+        }
     </style>
 
 
@@ -101,7 +105,7 @@
     <!-- logo, title-->
     <img src="fox_icon.png" alt="Fox Icon" width="100" height="100"/> <h1 style="font-size:300%; font-family:Cambria;" class="mycolor">Clever Content</h1>
 
-    <div class="input-container">
+    <div style="margin-top: 50px;" class="input-container">
         <input type="text" id="keyword" placeholder="I want to hide... (enter keyword)"/>
         <input type="image" src="plus.png" alt="add" width="15" height="15" id="add"/>
     </div>
@@ -121,6 +125,28 @@
             <a href="#" data-value="Sexual Content">Sexual Content</a>
         </div>
     </div>
+
+    <!-- choose to hide or to flag -->
+    <form action="#">
+        <fieldset style="margin-top: 20px;">
+            <legend style="font-family:'Courier New', Courier, monospace;" class="mycolor2">Do you want to...</legend>
+            
+            <label class="radio-label" for = "option1">
+            <input type="radio"
+                name="option"
+                id="option1"
+                value="Hide contend entirely">Hide content entirely
+            </label>
+            <br>
+            <label class="radio-label" for="option2"> 
+            <input type="radio"
+                name="option"
+                id="option2"
+                class="mycolor2;" value="Flag content">Flag Content
+            </label>
+            <br>
+        </fieldset>
+    </form>
 
     <!-- java script to add user keywords to list to display them (doesn't work rn...) -->
     <script>
