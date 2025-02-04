@@ -4,13 +4,13 @@
     <title>Clever Content</title>
     <script src="content.js"></script>
 </head>
-<html>
 <body>
     <img src="fox_icon.png" alt="Fox Icon" width="100" height="100"/> <h1>Clever Content</h1>
     <input type="text" id="keyword" placeholder="I want to hide..."/>
-    <button type="button" onclick="Display()">Submit</button>
+    <button>Submit</button>
 
-    <h1 id="show"></h1>
+    <ul>
+    </ul>
 
     <div class="dropdown">
         <h2>Select to filter out a theme of content</h2>
@@ -24,11 +24,14 @@
     <button id="hide">Hide Content</button>
 
     <script>
-        const results = document.getElementById("keyword");
-        function Display(){
-            let text = results.value;
-            document.getElementById("show").innerHTML = text;
-        }
+        const btnel = document.querySelector('button');
+        const inputel = document.querySelector('input');
+        const listel = document.querySelector('ul');
+
+        btnel.addEventListener('click', () => {
+            const inputValue = inputel.value;
+            listel.innterHTML = '<li>${inputValue}</li>';
+        })
     </script>
 </body>
 </html>
