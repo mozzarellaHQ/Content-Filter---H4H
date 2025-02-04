@@ -1,7 +1,7 @@
 {
     "name": "Clever Content",
     "description": "Sidepanel to filter social media content",
-    "version": "1.0",
+    "version": "2.0",
     "manifest_version": 3,
     "icons": {
         "128": "fox_icon.png"
