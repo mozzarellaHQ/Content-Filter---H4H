@@ -3,26 +3,126 @@
 <head>
     <title>Clever Content</title>
     <script src="popup.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color:linen
+        }
+
+        .dropdown{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dropbtn{
+            background-color: lightcyan;
+            color: darkcyan;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color:lightcyan;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown-content a{
+            color:chocolate;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+
+        .dropdown-content a:hover{
+            background-color: lightblue;
+        }
+
+        input::placeholder {
+            color: darkcyan;
+        }
+    </style>
+
+
+    <style>
+        .input-container {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            border: none;
+            appearance: none;
+            background-color:lightcyan;
+            padding: 12px;
+            border-radius: 3px;
+            height: 30px;
+            width: 200px;
+            outline: none;
+        }
+        
+        input[type="image"] {
+            cursor: pointer;
+            height: 30px;
+            width: auto;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+    </style>
+
+    <style type="text/css">
+        .mycolor {
+            color:darkcyan;
+        }
+    </style>
+
+    <style type="text/css">
+        .mycolor2 {
+            color:cadetblue;
+        }
+    </style>
+
 </head>
 <body>
-    <img src="fox_icon.png" alt="Fox Icon" width="100" height="100"/> <h1>Clever Content</h1>
-    <input type="text" id="keyword" placeholder="I want to hide..."/>
-    <button>Submit</button>
+    <!-- logo, title-->
+    <img src="fox_icon.png" alt="Fox Icon" width="100" height="100"/> <h1 style="font-size:300%; font-family:Cambria;" class="mycolor">Clever Content</h1>
 
+    <div class="input-container">
+        <input type="text" id="keyword" placeholder="I want to hide... (enter keyword)"/>
+        <input type="image" src="plus.png" alt="add" width="15" height="15" id="add"/>
+    </div>
+
+    <!-- list to hold user keywords -->
     <ul>
     </ul>
 
+    <!-- dropdown to select theme -->
+    <h2 style="font-family:'Courier New', Courier, monospace;" class="mycolor2">Select to filter out a theme of content</h2>
     <div class="dropdown">
-        <h2>Select to filter out a theme of content</h2>
-        <select id="themes">
-            <option value="Hate Speech">Hate Speech</option>
-            <option value="Violence">Violence</option>
-            <option value="Drugs">Drugs</option>
-            <option value="Sexual Content">Sexual Content</option>
-        </select>
+        <button class="dropbtn">Themes</button>
+        <div class = "dropdown-content">
+            <a href="#" data-value="Hate Speech">Hate Speech</a>
+            <a href="#" data-value="Violence">Violence</a>
+            <a href="#" data-value="Drugs">Drugs</a>
+            <a href="#" data-value="Sexual Content">Sexual Content</a>
+        </div>
     </div>
-    <button id="hide">Hide Content</button>
 
+    <!-- java script to add user keywords to list to display them (doesn't work rn...) -->
     <script>
         const btnel = document.querySelector('button');
         const inputel = document.querySelector('input');
