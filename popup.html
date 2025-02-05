@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Clever Content</title>
-    <script src="popup.js"></script>
+    
 
     <style>
         body {
@@ -114,7 +114,7 @@
     <ul id="inputList"></ul>
 
     <!-- dropdown to select theme -->
-    <h2 style="font-family:'Courier New', Courier, monospace;" class="mycolor2">Select to filter out a theme of content</h2>
+    <h2 style="font-family:'Courier New', Courier, monospace; margin-top: 100px" class="mycolor2">Select to filter out a theme of content</h2>
     <div class="dropdown">
         <button class="dropbtn">Themes</button>
         <div class = "dropdown-content">
@@ -124,6 +124,8 @@
             <a href="#" data-value="Sexual Content">Sexual Content</a>
         </div>
     </div>
+
+    <p id="output"></p>
 
     <!-- choose to hide or to flag -->
     <form action="#">
@@ -146,30 +148,6 @@
             <br>
         </fieldset>
     </form>
-
-    <!-- java script to add user keywords to list to display them (doesn't work rn...) -->
-    <script>
-        // const btnel = document.querySelector('button');
-        const btnel = document.getElementById('add'); //changed line above to this to get the button to properly work
-        const inputel = document.getElementById('keyword'); //changed from input to keyword
-        const listel = document.getElementById('inputList');
-
-        // btnel.addEventListener('click', () => {
-        //     const inputValue = inputel.value;
-        //     listel.innerHTML = `<li>${inputValue}</li>`;
-        // });
-        
-//this is attempt to get the add button working 
-        btnel.addEventListener('click', (event) => {
-            event.preventDefault(); 
-            const inputValue = inputel.value.trim();
-            if (inputValue) {
-                const newItem = document.createElement('li');
-                newItem.textContent = inputValue;
-                listel.appendChild(newItem);
-                inputel.value = '';
-            }
-        });
-    </script>
+<script src="popup.js"></script>
 </body>
 </html>
