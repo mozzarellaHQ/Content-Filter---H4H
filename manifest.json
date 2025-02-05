@@ -9,5 +9,12 @@
     "side_panel": {
         "default_path": "popup.html"
     },
-    "permissions": ["sidePanel"]
+    "permissions": ["sidePanel",
+     "activeTab"],
+
+    "content_scripts": [
+        {"matches": ["<all_urls>"],
+        "js": ["popup.js"]
+        }
+    ]
   }

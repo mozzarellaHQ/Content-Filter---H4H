@@ -21,10 +21,8 @@ btnel.addEventListener('click', (event) => {
 
         const deleteBtn = document.createElement('button');
         const icon = document.createElement('i');
-        icon.textContent = 'x';
-        icon.className = 'x-icon';
         deleteBtn.className = 'delete-button';
-        deleteBtn.textContenet = 'Delete';
+        deleteBtn.textContent = 'x';
         deleteBtn.append(icon);
         deleteBtn.addEventListener('click', () => {
             listel.removeChild(newItem);
@@ -72,3 +70,33 @@ function displayOutput() {
                 holdOut.appendChild(valueItem);
             });
         }
+
+
+// filtering content
+const filter_words = [];
+
+function block_content() {
+    const body_page = document.body.innerText;
+
+    filter_words.forEach(filter_words => {
+        if (body_page.includes(filter_words)) {
+            document.body.innerHTML = '';
+            alert('Blocked content due to keyword match!');
+        }
+    });
+}
+function add_words() {
+    filter_words.length = 0;
+    const list = listel.querySelectorAll('li');
+    list.forEach(item => {
+        const keyword = item.textContent.replace('x', '').trim();
+        if (keyword) {
+            filter_words.push(keyword);
+        }
+    })
+}
+
+const observer = new MutationObserver(add_words);
+const config = {childList: true, subtree: true};
+observer.observe(listel, config);
+add_words();
