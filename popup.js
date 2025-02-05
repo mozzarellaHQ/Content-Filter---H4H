@@ -18,6 +18,18 @@ btnel.addEventListener('click', (event) => {
         newItem.textContent = inputValue;
         listel.appendChild(newItem);
         inputel.value = '';
+
+        const deleteBtn = document.createElement('button');
+        const icon = document.createElement('i');
+        icon.textContent = 'X';
+        icon.className = 'x-icon';
+        deleteBtn.className = 'delete-button';
+        deleteBtn.textContenet = 'Delete';
+        deleteBtn.append(icon);
+        deleteBtn.addEventListener('click', () => {
+            listel.removeChild(newItem);
+        });
+        newItem.appendChild(deleteBtn);
     }
 });
 

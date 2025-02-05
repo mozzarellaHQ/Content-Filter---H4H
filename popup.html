@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Clever Content</title>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         body {
@@ -59,6 +59,40 @@
         .radio-label {
             color: darkcyan;
         }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            font-family:'Courier New', Courier, monospace;
+            margin: 5px 0;
+            padding: 8px;
+            background-color:darksalmon;
+            border-radius: 4px;
+        }
+
+        .delete-button {
+            display: flex;
+            margin-left: 10px;
+            width: 15px;
+            height: 15px;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .x-icon {
+            display: flex;
+            color:deeppink;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        
     </style>
 
 
@@ -114,7 +148,7 @@
     <ul id="inputList"></ul>
 
     <!-- dropdown to select theme -->
-    <h2 style="font-family:'Courier New', Courier, monospace; margin-top: 100px" class="mycolor2">Select to filter out a theme of content</h2>
+    <h2 style="font-family:'Courier New', Courier, monospace; margin-top: 20px" class="mycolor2">Select to filter out a theme of content</h2>
     <div class="dropdown">
         <button class="dropbtn">Themes</button>
         <div class = "dropdown-content">
