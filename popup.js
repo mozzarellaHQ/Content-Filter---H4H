@@ -78,39 +78,6 @@ const site = window.location.hostname
 alert("Clever Content is active on: " + site)
 
 
-const observer = new MutationObserver(add_words);
-const config = { childList: true, subtree: true};
-observer.observe(listel, config)
-
-function add_words() {
-    filter_words.length = 0;
-    const list = listel.querySelectorAll('li');
-    list.forEach(item => {
-        const keyword = item.textContent.replace('x', '').trim();
-        if (keyword) {
-            filter_words.push(keyword);
-        }
-    });
-}
-
-const postsObserver = new MutationObserver(block_content);
-postsObserver.observe(document.body, { childList: true, subtree: true });
-
-function block_content() {
-    const posts = document.querySelectorAll('div[data-testid="post-container"], div[data-testid="comment-container"]'); // Use correct selector for posts/comments
-    posts.forEach(post => {
-        const postText = post.innerText;
-        filter_words.forEach(word => {
-            if (postText.includes(word)) {
-                post.style.display = 'none';  // Hide post if it matches filter word
-            }
-        });
-    });
-}
-
-// Initial population of filter words
-add_words();
-
 
 
 
