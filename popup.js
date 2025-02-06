@@ -73,18 +73,15 @@ function displayOutput() {
 
 
 // filtering content
-const filter_words = [];
 
-function block_content() {
-    const body_page = document.body.innerText;
+const site = window.location.hostname
+alert("Clever Content is active on: " + site)
 
-    filter_words.forEach(filter_words => {
-        if (body_page.includes(filter_words)) {
-            document.body.innerHTML = '';
-            alert('Blocked content due to keyword match!');
-        }
-    });
-}
+
+const observer = new MutationObserver(add_words);
+const config = { childList: true, subtree: true};
+observer.observe(listel, config)
+
 function add_words() {
     filter_words.length = 0;
     const list = listel.querySelectorAll('li');
@@ -93,10 +90,35 @@ function add_words() {
         if (keyword) {
             filter_words.push(keyword);
         }
-    })
+    });
 }
 
-const observer = new MutationObserver(add_words);
-const config = {childList: true, subtree: true};
-observer.observe(listel, config);
+const postsObserver = new MutationObserver(block_content);
+postsObserver.observe(document.body, { childList: true, subtree: true });
+
+function block_content() {
+    const posts = document.querySelectorAll('div[data-testid="post-container"], div[data-testid="comment-container"]'); // Use correct selector for posts/comments
+    posts.forEach(post => {
+        const postText = post.innerText;
+        filter_words.forEach(word => {
+            if (postText.includes(word)) {
+                post.style.display = 'none';  // Hide post if it matches filter word
+            }
+        });
+    });
+}
+
+// Initial population of filter words
 add_words();
+
+
+
+
+
+
+// General filtering functions
+
+//reddit.com
+//if (site.includes("reddit.com")) {
+
+//}
